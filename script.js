@@ -19,13 +19,13 @@ function divide(x, y) {
 function operate(num1, num2, op) {
   switch (op) {
     case "+":
-      return add(num1, num2);
+      return add(Number(num1), Number(num2));
     case "-":
-      return subtract(num1, num2);
+      return subtract(Number(num1), Number(num2));
     case "*":
-      return multiply(num1, num2);
+      return multiply(Number(num1), Number(num2));
     case "/":
-      return divide(num1, num2);
+      return divide(Number(num1), Number(num2));
   }
 }
 
@@ -54,6 +54,7 @@ let calculator = {
   history: [],
   number: "",
   operator: "",
+  result: "",
 };
 
 // Number events
@@ -109,25 +110,61 @@ btn9.addEventListener("click", () => {
 
 // Operator events
 btnAdd.addEventListener("click", () => {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-    calculator.operator = "+";
-})
+  calculator.history.push(calculator.number);
+  calculator.number = "";
+  if (calculator.operator) {
+    calculator.result = operate(
+      calculator.history[calculator.history.length - 2],
+      calculator.history[calculator.history.length - 1],
+      calculator.operator
+    );
+    calculator.history.push(calculator.result);
+    display.textContent = calculator.result;
+  }
+  calculator.operator = "+";
+});
 
 btnSubtract.addEventListener("click", () => {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-    calculator.operator = "-";
-})
+  calculator.history.push(calculator.number);
+  calculator.number = "";
+  if (calculator.operator) {
+    calculator.result = operate(
+      calculator.history[calculator.history.length - 2],
+      calculator.history[calculator.history.length - 1],
+      calculator.operator
+    );
+    calculator.history.push(calculator.result);
+    display.textContent = calculator.result;
+  }
+  calculator.operator = "-";
+});
 
 btnMultiply.addEventListener("click", () => {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-    calculator.operator = "*";
-})
+  calculator.history.push(calculator.number);
+  calculator.number = "";
+  if (calculator.operator) {
+    calculator.result = operate(
+      calculator.history[calculator.history.length - 2],
+      calculator.history[calculator.history.length - 1],
+      calculator.operator
+    );
+    calculator.history.push(calculator.result);
+    display.textContent = calculator.result;
+  }
+  calculator.operator = "*";
+});
 
 btnDivide.addEventListener("click", () => {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-    calculator.operator = "/";
-})
+  calculator.history.push(calculator.number);
+  calculator.number = "";
+  if (calculator.operator) {
+    calculator.result = operate(
+      calculator.history[calculator.history.length - 2],
+      calculator.history[calculator.history.length - 1],
+      calculator.operator
+    );
+    calculator.history.push(calculator.result);
+    display.textContent = calculator.result;
+  }
+  calculator.operator = "/";
+});
