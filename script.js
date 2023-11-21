@@ -19,13 +19,13 @@ function divide(x, y) {
 function operate(num1, num2, op) {
   switch (op) {
     case "+":
-      return add(Number(num1), Number(num2));
+      return add(num1, num2);
     case "-":
-      return subtract(Number(num1), Number(num2));
+      return subtract(num1, num2);
     case "*":
-      return multiply(Number(num1), Number(num2));
+      return multiply(num1, num2);
     case "/":
-      return divide(Number(num1), Number(num2));
+      return divide(num1, num2);
   }
 }
 
@@ -59,52 +59,52 @@ let calculator = {
 
 // Number events
 btn0.addEventListener("click", () => {
-  calculator.number += "0";
+  calculator.number += 0;
   display.textContent = calculator.number;
 });
 
 btn1.addEventListener("click", () => {
-  calculator.number += "1";
+  calculator.number += 1;
   display.textContent = calculator.number;
 });
 
 btn2.addEventListener("click", () => {
-  calculator.number += "2";
+  calculator.number += 2;
   display.textContent = calculator.number;
 });
 
 btn3.addEventListener("click", () => {
-  calculator.number += "3";
+  calculator.number += 3;
   display.textContent = calculator.number;
 });
 
 btn4.addEventListener("click", () => {
-  calculator.number += "4";
+  calculator.number += 4;
   display.textContent = calculator.number;
 });
 
 btn5.addEventListener("click", () => {
-  calculator.number += "5";
+  calculator.number += 5;
   display.textContent = calculator.number;
 });
 
 btn6.addEventListener("click", () => {
-  calculator.number += "6";
+  calculator.number += 6;
   display.textContent = calculator.number;
 });
 
 btn7.addEventListener("click", () => {
-  calculator.number += "7";
+  calculator.number += 7;
   display.textContent = calculator.number;
 });
 
 btn8.addEventListener("click", () => {
-  calculator.number += "8";
+  calculator.number += 8;
   display.textContent = calculator.number;
 });
 
 btn9.addEventListener("click", () => {
-  calculator.number += "9";
+  calculator.number += 9;
   display.textContent = calculator.number;
 });
 
