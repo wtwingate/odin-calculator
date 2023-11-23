@@ -58,10 +58,12 @@ let calculator = {
   number: "",
   operator: "",
   result: "",
+  point: false,
   pressOperator: function () {
     if (this.number !== "") {
       this.history.push(this.number);
       this.number = "";
+      this.point = false;
       if (this.operator && this.history.length > 1) {
         this.result = operate(
           this.history[this.history.length - 2],
@@ -78,58 +80,67 @@ let calculator = {
     this.number = "";
     this.operator = "";
     this.result = "";
+    this.point = false;
   },
 };
 
 // Number events
 btn0.addEventListener("click", () => {
-  calculator.number += 0;
+  calculator.number += "0";
   display.textContent = calculator.number;
 });
 
 btn1.addEventListener("click", () => {
-  calculator.number += 1;
+  calculator.number += "1";
   display.textContent = calculator.number;
 });
 
 btn2.addEventListener("click", () => {
-  calculator.number += 2;
+  calculator.number += "2";
   display.textContent = calculator.number;
 });
 
 btn3.addEventListener("click", () => {
-  calculator.number += 3;
+  calculator.number += "3";
   display.textContent = calculator.number;
 });
 
 btn4.addEventListener("click", () => {
-  calculator.number += 4;
+  calculator.number += "4";
   display.textContent = calculator.number;
 });
 
 btn5.addEventListener("click", () => {
-  calculator.number += 5;
+  calculator.number += "5";
   display.textContent = calculator.number;
 });
 
 btn6.addEventListener("click", () => {
-  calculator.number += 6;
+  calculator.number += "6";
   display.textContent = calculator.number;
 });
 
 btn7.addEventListener("click", () => {
-  calculator.number += 7;
+  calculator.number += "7";
   display.textContent = calculator.number;
 });
 
 btn8.addEventListener("click", () => {
-  calculator.number += 8;
+  calculator.number += "8";
   display.textContent = calculator.number;
 });
 
 btn9.addEventListener("click", () => {
-  calculator.number += 9;
+  calculator.number += "9";
   display.textContent = calculator.number;
+});
+
+btnPoint.addEventListener("click", () => {
+  if (!calculator.point) {
+    calculator.number += ".";
+    display.textContent = calculator.number;
+    calculator.point = true;
+  }
 });
 
 // Operator events
