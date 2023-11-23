@@ -89,6 +89,27 @@ let calculator = {
       this.number = "-" + this.number;
     }
   },
+  pressPercent: function () {
+    if (!this.point) {
+      while (this.number.length < 3) {
+        this.number = "0" + this.number;
+      }
+      let numArray = Array.from(this.number);
+      numArray.splice(numArray.length - 2, 0, ".");
+      this.number = numArray.join("");
+      this.point = true;
+    } else {
+      let numArray = Array.from(this.number);
+      let pointIndex = numArray.findIndex((e) => e === ".");
+      while (pointIndex - 2 < 1) {
+        numArray.unshift("0");
+        pointIndex = numArray.findIndex((e) => e === ".");
+      }
+      numArray.splice(pointIndex, 1);
+      numArray.splice(pointIndex - 2, 0, ".");
+      this.number = numArray.join("");
+    }
+  },
 };
 
 // Number events
@@ -187,4 +208,7 @@ btnToggle.addEventListener("click", () => {
   display.textContent = calculator.number;
 });
 
-btnPercent.addEventListener("click", () => {});
+btnPercent.addEventListener("click", () => {
+  calculator.pressPercent();
+  display.textContent = calculator.number;
+});
