@@ -82,6 +82,13 @@ let calculator = {
     this.result = "";
     this.point = false;
   },
+  pressToggle: function () {
+    if (this.number.startsWith("-")) {
+      this.number = this.number.slice(1);
+    } else {
+      this.number = "-" + this.number;
+    }
+  },
 };
 
 // Number events
@@ -174,3 +181,10 @@ btnClear.addEventListener("click", () => {
   calculator.pressClear();
   display.textContent = "0";
 });
+
+btnToggle.addEventListener("click", () => {
+  calculator.pressToggle();
+  display.textContent = calculator.number;
+});
+
+btnPercent.addEventListener("click", () => {});
