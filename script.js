@@ -56,8 +56,19 @@ let calculator = {
   number: "",
   operator: "",
   result: "",
-  checkOperator: function () {
+  pressOperator: function () {
     if (this.operator) {
+      this.result = operate(
+        this.history[this.history.length - 2],
+        this.history[this.history.length - 1],
+        this.operator
+      );
+      this.history.push(this.result);
+      display.textContent = this.result;
+    }
+  },
+  pressEquals: function () {
+    if (this.history.length > 1 && this.operator) {
       this.result = operate(
         this.history[this.history.length - 2],
         this.history[this.history.length - 1],
@@ -124,27 +135,33 @@ btn9.addEventListener("click", () => {
 btnAdd.addEventListener("click", () => {
   calculator.history.push(calculator.number);
   calculator.number = "";
-  calculator.checkOperator();
+  calculator.pressOperator();
   calculator.operator = "add";
 });
 
 btnSubtract.addEventListener("click", () => {
   calculator.history.push(calculator.number);
   calculator.number = "";
-  calculator.checkOperator();
+  calculator.pressOperator();
   calculator.operator = "subtract";
 });
 
 btnMultiply.addEventListener("click", () => {
   calculator.history.push(calculator.number);
   calculator.number = "";
-  calculator.checkOperator();
+  calculator.pressOperator();
   calculator.operator = "multiply";
 });
 
 btnDivide.addEventListener("click", () => {
   calculator.history.push(calculator.number);
   calculator.number = "";
-  calculator.checkOperator();
+  calculator.pressOperator();
   calculator.operator = "divide";
+});
+
+btnEquals.addEventListener("click", () => {
+  calculator.history.push(calculator.number);
+  calculator.number = "";
+  calculator.pressEquals();
 });
