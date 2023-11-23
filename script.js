@@ -57,7 +57,7 @@ let calculator = {
   operator: "",
   result: "",
   pressOperator: function () {
-    if (this.operator) {
+    if (this.operator && this.number !== "" && this.history.length > 1) {
       this.result = operate(
         this.history[this.history.length - 2],
         this.history[this.history.length - 1],
@@ -68,7 +68,7 @@ let calculator = {
     }
   },
   pressEquals: function () {
-    if (this.history.length > 1 && this.operator) {
+    if (this.operator && this.number !== "" && this.history.length > 1) {
       this.result = operate(
         this.history[this.history.length - 2],
         this.history[this.history.length - 1],
@@ -133,35 +133,46 @@ btn9.addEventListener("click", () => {
 
 // Operator events
 btnAdd.addEventListener("click", () => {
-  calculator.history.push(calculator.number);
-  calculator.number = "";
+  if (calculator.number !== "") {
+    calculator.history.push(calculator.number);
+    calculator.number = "";
+  }
   calculator.pressOperator();
   calculator.operator = "add";
 });
 
 btnSubtract.addEventListener("click", () => {
-  calculator.history.push(calculator.number);
-  calculator.number = "";
+  if (calculator.number !== "") {
+    calculator.history.push(calculator.number);
+    calculator.number = "";
+  }
   calculator.pressOperator();
   calculator.operator = "subtract";
 });
 
 btnMultiply.addEventListener("click", () => {
-  calculator.history.push(calculator.number);
-  calculator.number = "";
+  if (calculator.number !== "") {
+    calculator.history.push(calculator.number);
+    calculator.number = "";
+  }
   calculator.pressOperator();
   calculator.operator = "multiply";
 });
 
 btnDivide.addEventListener("click", () => {
-  calculator.history.push(calculator.number);
-  calculator.number = "";
+  if (calculator.number !== "") {
+    calculator.history.push(calculator.number);
+    calculator.number = "";
+  }
   calculator.pressOperator();
   calculator.operator = "divide";
 });
 
 btnEquals.addEventListener("click", () => {
-  calculator.history.push(calculator.number);
-  calculator.number = "";
+  if (calculator.number !== "") {
+    calculator.history.push(calculator.number);
+    calculator.number = "";
+  }
   calculator.pressEquals();
+  calculator.operator = "";
 });
