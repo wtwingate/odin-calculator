@@ -50,6 +50,8 @@ const btnClear = document.querySelector("#clear");
 const btnToggle = document.querySelector("#toggle");
 const btnPercent = document.querySelector("#percent");
 
+display.textContent = "0";
+
 // Calculator data and methods
 let calculator = {
   history: [],
@@ -70,6 +72,12 @@ let calculator = {
         display.textContent = this.result;
       }
     }
+  },
+  pressClear: function () {
+    this.history = [];
+    this.number = "";
+    this.operator = "";
+    this.result = "";
   },
 };
 
@@ -148,4 +156,10 @@ btnDivide.addEventListener("click", () => {
 btnEquals.addEventListener("click", () => {
   calculator.pressOperator();
   calculator.operator = "";
+});
+
+// Function events
+btnClear.addEventListener("click", () => {
+  calculator.pressClear();
+  display.textContent = "0";
 });
