@@ -57,25 +57,18 @@ let calculator = {
   operator: "",
   result: "",
   pressOperator: function () {
-    if (this.operator && this.number !== "" && this.history.length > 1) {
-      this.result = operate(
-        this.history[this.history.length - 2],
-        this.history[this.history.length - 1],
-        this.operator
-      );
-      this.history.push(this.result);
-      display.textContent = this.result;
-    }
-  },
-  pressEquals: function () {
-    if (this.operator && this.number !== "" && this.history.length > 1) {
-      this.result = operate(
-        this.history[this.history.length - 2],
-        this.history[this.history.length - 1],
-        this.operator
-      );
-      this.history.push(this.result);
-      display.textContent = this.result;
+    if (this.number !== "") {
+      this.history.push(this.number);
+      this.number = "";
+      if (this.operator && this.history.length > 1) {
+        this.result = operate(
+          this.history[this.history.length - 2],
+          this.history[this.history.length - 1],
+          this.operator
+        );
+        this.history.push(this.result);
+        display.textContent = this.result;
+      }
     }
   },
 };
@@ -133,46 +126,26 @@ btn9.addEventListener("click", () => {
 
 // Operator events
 btnAdd.addEventListener("click", () => {
-  if (calculator.number !== "") {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-  }
   calculator.pressOperator();
   calculator.operator = "add";
 });
 
 btnSubtract.addEventListener("click", () => {
-  if (calculator.number !== "") {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-  }
   calculator.pressOperator();
   calculator.operator = "subtract";
 });
 
 btnMultiply.addEventListener("click", () => {
-  if (calculator.number !== "") {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-  }
   calculator.pressOperator();
   calculator.operator = "multiply";
 });
 
 btnDivide.addEventListener("click", () => {
-  if (calculator.number !== "") {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-  }
   calculator.pressOperator();
   calculator.operator = "divide";
 });
 
 btnEquals.addEventListener("click", () => {
-  if (calculator.number !== "") {
-    calculator.history.push(calculator.number);
-    calculator.number = "";
-  }
-  calculator.pressEquals();
+  calculator.pressOperator();
   calculator.operator = "";
 });
