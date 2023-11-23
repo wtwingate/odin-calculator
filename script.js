@@ -13,7 +13,12 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-  return x / y;
+  if (y === 0) {
+    alert("Fool of a Took!");
+    return "Undefined";
+  } else {
+    return x / y;
+  }
 }
 
 function operate(num1, num2, op) {
