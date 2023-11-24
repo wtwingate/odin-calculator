@@ -1,15 +1,15 @@
 "use strict";
 
 function add(x, y) {
-  return x + y;
+  return Math.round((x + y) * 100) / 100;
 }
 
 function subtract(x, y) {
-  return x - y;
+  return Math.round((x - y) * 100) / 100;
 }
 
 function multiply(x, y) {
-  return x * y;
+  return Math.round(x * y * 100) / 100;
 }
 
 function divide(x, y) {
@@ -17,7 +17,7 @@ function divide(x, y) {
     alert("Fool of a Took!");
     return "Undefined";
   } else {
-    return x / y;
+    return Math.round((x / y) * 100) / 100;
   }
 }
 
