@@ -1,5 +1,30 @@
 "use strict";
 
+// Set element variables
+const display = document.querySelector("#display");
+const btn0 = document.querySelector("#num0");
+const btn1 = document.querySelector("#num1");
+const btn2 = document.querySelector("#num2");
+const btn3 = document.querySelector("#num3");
+const btn4 = document.querySelector("#num4");
+const btn5 = document.querySelector("#num5");
+const btn6 = document.querySelector("#num6");
+const btn7 = document.querySelector("#num7");
+const btn8 = document.querySelector("#num8");
+const btn9 = document.querySelector("#num9");
+const btnPoint = document.querySelector("#point");
+const btnEquals = document.querySelector("#equals");
+const btnAdd = document.querySelector("#add");
+const btnSubtract = document.querySelector("#subtract");
+const btnMultiply = document.querySelector("#multiply");
+const btnDivide = document.querySelector("#divide");
+const btnClear = document.querySelector("#clear");
+const btnToggle = document.querySelector("#toggle");
+const btnPercent = document.querySelector("#percent");
+
+display.textContent = "0";
+
+// Some basic arithmetic functions
 function add(x, y) {
   return Math.round((x + y) * 100) / 100;
 }
@@ -33,29 +58,6 @@ function operate(num1, num2, op) {
       return divide(Number(num1), Number(num2));
   }
 }
-
-const display = document.querySelector("#display");
-const btn0 = document.querySelector("#num0");
-const btn1 = document.querySelector("#num1");
-const btn2 = document.querySelector("#num2");
-const btn3 = document.querySelector("#num3");
-const btn4 = document.querySelector("#num4");
-const btn5 = document.querySelector("#num5");
-const btn6 = document.querySelector("#num6");
-const btn7 = document.querySelector("#num7");
-const btn8 = document.querySelector("#num8");
-const btn9 = document.querySelector("#num9");
-const btnPoint = document.querySelector("#point");
-const btnEquals = document.querySelector("#equals");
-const btnAdd = document.querySelector("#add");
-const btnSubtract = document.querySelector("#subtract");
-const btnMultiply = document.querySelector("#multiply");
-const btnDivide = document.querySelector("#divide");
-const btnClear = document.querySelector("#clear");
-const btnToggle = document.querySelector("#toggle");
-const btnPercent = document.querySelector("#percent");
-
-display.textContent = "0";
 
 // Calculator data and methods
 let calculator = {
