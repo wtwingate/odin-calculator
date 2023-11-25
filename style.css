@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import "./catppuccin.css";
 
 html {
   font-family: Roboto, sans-serif;
   font-size: 32px;
   font-weight: 700;
-  background-color: var(--ctp-latte-crust);
+  background-color: #dce0e8;
 }
 
 main {
@@ -19,8 +18,8 @@ main {
   border: 4px;
   border-style: solid;
   border-radius: 8px;
-  border-color: var(--ctp-latte-subtext1);
-  background-color: var(--ctp-latte-overlay0);
+  border-color: #5c5f77;
+  background-color: #9ca0b0;
 }
 
 #display {
@@ -29,11 +28,11 @@ main {
   font-size: 64px;
   text-align: right;
   height: 80px;
-  color: var(--ctp-latte-text);
-  background-color: var(--ctp-latte-base);
+  color: #4c4f69;
+  background-color: #eff1f5;
   border: 4px;
   border-style: solid;
-  border-color: var(--ctp-latte-subtext1);
+  border-color: #5c5f77;
   border-radius: 8px;
 }
 
@@ -42,8 +41,8 @@ main {
 }
 
 button {
-  color: var(--ctp-latte-text);
-  background-color: var(--ctp-latte-base);
+  color: #4c4f69;
+  background-color: #eff1f5;
   font-family: Roboto, sans-serif;
   font-size: 32px;
   font-weight: 700;
@@ -53,26 +52,26 @@ button {
 }
 
 .number {
-  color: var(--ctp-latte-sky);
+  color: #04a5e5;
   border: 4px;
   border-style: solid;
-  border-color: var(--ctp-latte-sky);
+  border-color: #04a5e5;
   border-radius: 8px;
 }
 
 .operator {
-  color: var(--ctp-latte-maroon);
+  color: #e64553;
   border: 4px;
   border-style: solid;
-  border-color: var(--ctp-latte-maroon);
+  border-color: #e64553;
   border-radius: 8px;
 }
 
 .function {
-  color: var(--ctp-latte-yellow);
+  color: #df8e1d;
   border: 4px;
   border-style: solid;
-  border-color: var(--ctp-latte-yellow);
+  border-color: #df8e1d;
   border-radius: 8px;
 }
 
