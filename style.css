@@ -36,6 +36,12 @@ main {
   border-radius: 8px;
 }
 
+.overflowing {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .row {
   margin: 8px;
 }
